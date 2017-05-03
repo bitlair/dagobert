@@ -1,0 +1,3 @@
+void setupTemperatureSensor();
+void updateTemperatureReading();
+

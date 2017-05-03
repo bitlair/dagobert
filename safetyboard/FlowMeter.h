@@ -1,0 +1,2 @@
+void waterPulseCounter();
+void updateWaterFlow();
