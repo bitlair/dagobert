@@ -1,0 +1,4 @@
+pyserial==3.3
+configparser==3.5.0
+paramiko==2.1.2
+
