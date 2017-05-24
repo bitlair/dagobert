@@ -65,7 +65,7 @@ def read_userfile(configdir):
 
     userfile = Path(os.path.join(configdir, 'users.csv'))
     if not userfile.is_file():
-        log(userfile + " does not exist")
+        log(str(userfile) + " does not exist")
         return False
 
     try:
