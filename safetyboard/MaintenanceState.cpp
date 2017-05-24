@@ -37,9 +37,13 @@ void maintenance_state_enter() {
   lcd.print("  4 laser    # end");
 
   maintenance_update_external_devices();
+
+  Serial.println("M");
 }
 
 void maintenance_state_leave() {
+  Serial.println("L");
+  
   digitalWrite(TestfireEnablePin, LOW);
   digitalWrite(PotmeterEnable, LOW);
 }
