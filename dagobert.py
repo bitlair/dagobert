@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from serial.tools import list_ports
 import serial
 import io
