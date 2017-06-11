@@ -148,6 +148,9 @@ def main(argv):
             cdc = next(list_ports.grep(config.get('serial', 'device')))
             ser = serial.Serial(cdc[0])
 
+            time.sleep(2);
+            ser.write(b"R\n");
+
             while True:
                 data = ser.readline()
                 action = chr(data[0])
