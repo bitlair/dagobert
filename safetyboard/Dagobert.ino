@@ -39,26 +39,11 @@ long ventilationDisableTime;
 
 UserData loggedInUser;
 
-ISR (PCINT0_vect) {
-  laserActiveTime = millis();
-}
-
-void pciSetup(byte pin)
-{
-  *digitalPinToPCMSK(pin) |= bit (digitalPinToPCMSKbit(pin));
-  PCIFR  |= bit (digitalPinToPCICRbit(pin));
-  PCICR  |= bit (digitalPinToPCICRbit(pin));
-}
-
 void setup() {
-  pciSetup(LaserPWMSignalPin);
-  pciSetup(LaserEnableSignalPin);
-
   attachInterrupt(0, waterPulseCounter, RISING);
   pinMode(WaterflowMeterPin, INPUT_PULLUP);
   
-  pinMode(LaserPWMSignalPin, INPUT);
-  pinMode(LaserEnableSignalPin, INPUT);
+  pinMode(LaserEnableSignalPin, INPUT_PULLUP);
   
   pinMode(IButtonGreenLedPin, OUTPUT);
   pinMode(IButtonRedLedPin, OUTPUT);
@@ -86,7 +71,7 @@ void setup() {
 void loop() {
   updateWaterFlow();
   
-  if (digitalRead(LaserPWMSignalPin) || digitalRead(LaserEnableSignalPin)) {
+  if (digitalRead(LaserEnableSignalPin)) {
     laserActiveTime = millis();
   }
 

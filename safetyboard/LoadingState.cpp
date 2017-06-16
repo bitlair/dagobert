@@ -11,6 +11,8 @@ extern FSM fsm;
 void loading_state_enter() {
   lcd.clear();
   lcd.print("Bitlair Lasercutter");
+
+  digitalWrite(LightsPin, HIGH);
 }
 
 void loading_state_leave() {

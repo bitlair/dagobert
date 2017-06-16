@@ -8,7 +8,6 @@ static int IButtonGreenLedPin = 5;
 
 static int TemperatureSensorPin = 6;
 
-static int LaserPWMSignalPin = 10;
 static int LaserEnableSignalPin = 11;
 
 static int AirAssistPin = 52;
