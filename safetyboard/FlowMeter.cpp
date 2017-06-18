@@ -28,13 +28,17 @@ void updateWaterFlow()
     }
   }
 
-  if (totalPeriods == 0) return;
+  if ( (millis() - lastPulse) < 1000 ) {
+    if (totalPeriods == 0) return;
 
-  int averageDifference = totalDifference / totalPeriods;
-  float pulsesPerMinute = 60000 / (float)averageDifference;
+    int averageDifference = totalDifference / totalPeriods;
+    float pulsesPerMinute = 60000 / (float)averageDifference;
 
-  // YF-G1 has 4.8 pulses per liter
-  waterFlowLitersPerMinute = pulsesPerMinute / 4.8;
+    // YF-G1 has 4.8 pulses per liter
+    waterFlowLitersPerMinute = pulsesPerMinute / 4.8;
+  } else {
+    waterFlowLitersPerMinute = 0;
+  }
 
   if ((millis() - lastWaterFlowMeasurement) > WATERFLOW_SENSOR_INTERVAL) {
     Serial.print("W");
