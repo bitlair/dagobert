@@ -88,7 +88,7 @@ def git_update(git_binary, config_dir):
     global users
 
     log("Updating git")
-    subprocess.call([git_binary, "--work-tree=" + config_dir, "pull"])
+    subprocess.call([git_binary, "-C", config_dir, "pull"])
 
     new_users = read_userfile(config_dir)
     if not new_users:
