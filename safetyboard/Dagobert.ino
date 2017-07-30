@@ -43,6 +43,7 @@ void setup() {
   attachInterrupt(0, waterPulseCounter, RISING);
   pinMode(WaterflowMeterPin, INPUT_PULLUP);
   
+  pinMode(LaserEmergencySignalPin, INPUT_PULLUP);
   pinMode(LaserEnableSignalPin, INPUT_PULLUP);
   
   pinMode(IButtonGreenLedPin, OUTPUT);
@@ -71,7 +72,7 @@ void setup() {
 void loop() {
   updateWaterFlow();
   
-  if (digitalRead(LaserEnableSignalPin)) {
+  if (digitalRead(LaserEnableSignalPin) && digitalRead(LaserEmergencySignalPin)) {
     laserActiveTime = millis();
   }
 
