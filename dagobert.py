@@ -154,7 +154,7 @@ def main(argv):
             while True:
                 data = ser.readline()
                 action = chr(data[0])
-                value = data[1:-2].decode("iso-8859-1")
+                value = data[1:-1].decode("iso-8859-1")
 
                 if action == 'B':
                     print("Arduino ready")
