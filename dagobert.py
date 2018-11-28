@@ -75,7 +75,7 @@ def read_userfile(configdir):
             spamreader = csv.reader(csvfile)
             for row in spamreader:
                 if len(row) == 4:
-                    users[row[0]] = { 'maintenance': row[1] == "true", 'price': row[2], 'revbank': row[3] }
+                    users[row[0].upper()] = { 'maintenance': row[1] == "true", 'price': row[2], 'revbank': row[3] }
                 else:
                     log("Wrong number of columns in row")
 
@@ -154,7 +154,7 @@ def main(argv):
             while True:
                 data = ser.readline()
                 action = chr(data[0])
-                value = data[1:-1].decode("iso-8859-1")
+                value = data[1:-1].decode("iso-8859-1").upper()
 
                 if action == 'B':
                     print("Arduino ready")
