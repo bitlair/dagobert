@@ -54,10 +54,8 @@ void unlocked_state_enter() {
 
   digitalWrite(AirAssistPin, HIGH);
   digitalWrite(VentilationPin, HIGH);
-  digitalWrite(WaterCoolerPin, HIGH);
   digitalWrite(LaserEnablePin, HIGH);
-  digitalWrite(LightsPin, LOW);
-  digitalWrite(LaosEnablePin, HIGH);
+  digitalWrite(RuidaEnablePin, LOW);
 }
 
 void unlocked_state_leave() {
@@ -85,4 +83,3 @@ void unlocked_state_update() {
       break;
   }
 }
-

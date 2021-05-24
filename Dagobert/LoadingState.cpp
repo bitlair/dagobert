@@ -11,8 +11,10 @@ extern FSM fsm;
 void loading_state_enter() {
   lcd.clear();
   lcd.print("Bitlair Lasercutter");
+  lcd.setCursor(0, 2);
+  lcd.print("Waiting for Dagobert");
 
-  digitalWrite(LightsPin, HIGH);
+  digitalWrite(RuidaEnablePin, HIGH);
 }
 
 void loading_state_leave() {
@@ -30,4 +32,3 @@ void loading_state_update() {
     }
   }  
 }
-

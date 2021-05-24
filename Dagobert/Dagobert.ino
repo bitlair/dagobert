@@ -6,9 +6,7 @@
 #include "UnlockedState.h"
 #include "MaintenanceState.h"
 #include "defs.h"
-#include "Temperature.h"
 #include "LaserActiveState.h"
-#include "FlowMeter.h"
 #include "LoadingState.h"
 
 const byte ROWS = 4;
@@ -40,9 +38,6 @@ long ventilationDisableTime;
 UserData loggedInUser;
 
 void setup() {
-  attachInterrupt(0, waterPulseCounter, RISING);
-  pinMode(WaterflowMeterPin, INPUT_PULLUP);
-  
   pinMode(LaserEmergencySignalPin, INPUT_PULLUP);
   pinMode(LaserEnableSignalPin, INPUT_PULLUP);
   
@@ -51,12 +46,8 @@ void setup() {
 
   pinMode(AirAssistPin, OUTPUT);
   pinMode(VentilationPin, OUTPUT);
-  pinMode(WaterCoolerPin, OUTPUT);
   pinMode(LaserEnablePin, OUTPUT);
-  pinMode(LightsPin, OUTPUT);
-  pinMode(TestfireEnablePin, OUTPUT);
-  pinMode(PotmeterEnable, OUTPUT);
-  pinMode(LaosEnablePin, OUTPUT);
+  pinMode(RuidaEnablePin, OUTPUT);
 
   lcd.init();
   lcd.backlight();
@@ -65,14 +56,12 @@ void setup() {
 
   Serial.println("Booted");
 
-  setupTemperatureSensor();
+  
 }
 
 
 void loop() {
-  updateWaterFlow();
-  
-  if (digitalRead(LaserEnableSignalPin) && digitalRead(LaserEmergencySignalPin)) {
+  if (!digitalRead(LaserEnableSignalPin) && digitalRead(LaserEmergencySignalPin)) {
     laserActiveTime = millis();
   }
 
@@ -82,5 +71,4 @@ void loop() {
   }
   
   fsm.update();
-  updateTemperatureReading();
 }

@@ -1,24 +1,16 @@
 #include <Arduino.h>
 
-static int WaterflowMeterPin = 2;
-
 static int IButtonReaderPin = 3;
 static int IButtonRedLedPin = 4;
 static int IButtonGreenLedPin = 5;
 
-static int TemperatureSensorPin = 6;
+static int LaserEmergencySignalPin = 9;
+static int LaserEnableSignalPin = 10;
 
-static int LaserEmergencySignalPin = 10;
-static int LaserEnableSignalPin = 11;
-
-static int AirAssistPin = 52;
-static int VentilationPin = 53;
-static int WaterCoolerPin = 51;
-static int LaserEnablePin = 50;
-static int LightsPin = 49;
-static int TestfireEnablePin = 47;
-static int PotmeterEnable = 46;
-static int LaosEnablePin = 44;
+static int AirAssistPin = 52; // Bruin
+static int VentilationPin = 53; // Paars
+static int LaserEnablePin = 50; // Oranje
+static int RuidaEnablePin = 44; // Groen
 
 #define AUTHENTICATION_TIMEOUT 5000
 #define TEMPERATURE_SENSOR_INTERVAL 10000
@@ -36,5 +28,3 @@ struct UserData {
   long costOfLastJob = 0;
   long totalCost = 0;
 };
-
-

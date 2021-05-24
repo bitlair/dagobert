@@ -37,10 +37,8 @@ void locked_state_enter() {
   digitalWrite(IButtonGreenLedPin, LOW);
 
   digitalWrite(AirAssistPin, LOW);
-  digitalWrite(WaterCoolerPin, LOW);
   digitalWrite(LaserEnablePin, LOW);
-  digitalWrite(LightsPin, HIGH);
-  digitalWrite(LaosEnablePin, LOW);
+  digitalWrite(RuidaEnablePin, HIGH);
 
   if ((millis() - laserActiveTime) > MINIMUM_VENTILATION_TIME) {
     digitalWrite(VentilationPin, LOW);
@@ -110,4 +108,3 @@ void locked_state_update() {
 
   checkSerialForInstructions();
 }
-
