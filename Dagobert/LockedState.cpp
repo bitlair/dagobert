@@ -1,10 +1,10 @@
 #include <Arduino.h>
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 #include "OneWire.h"
 #include "defs.h"
 #include "FiniteStateMachine.h"
 
-extern LiquidCrystal_I2C lcd;
+extern LiquidCrystal lcd;
 extern UserData loggedInUser;
 extern State unlockedState;
 extern FSM fsm;
@@ -69,7 +69,8 @@ void checkSerialForInstructions() {
       lcd.setCursor(0, 2);
       lcd.print("                   ");
       lcd.setCursor(0, 2);
-      lcd.printstr(buffer + 1);
+      //lcd.printstr(buffer + 1);
+      lcd.print(buffer + 1);
 
       lastAuthenticationTime = millis();
     } else if (buffer[0] == 'U') {

@@ -1,10 +1,10 @@
 #include <Arduino.h>
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 #include "defs.h"
 #include "FiniteStateMachine.h"
 #include <Keypad.h>
 
-extern LiquidCrystal_I2C lcd;
+extern LiquidCrystal lcd;
 extern UserData loggedInUser;
 extern State lockedState;
 extern FSM fsm;

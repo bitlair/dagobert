@@ -4,13 +4,20 @@ static int IButtonReaderPin = 3;
 static int IButtonRedLedPin = 4;
 static int IButtonGreenLedPin = 5;
 
-static int LaserEmergencySignalPin = 9;
-static int LaserEnableSignalPin = 10;
+static int LaserEmergencySignalPin = 8;
+static int LaserEnableSignalPin = 9;
 
 static int AirAssistPin = 52; // Bruin
 static int VentilationPin = 53; // Paars
 static int LaserEnablePin = 50; // Oranje
 static int RuidaEnablePin = 44; // Groen
+
+const int LCD_RS = 33;
+const int LCD_EN = 31;
+const int LCD_D4 = 29;
+const int LCD_D5 = 27;
+const int LCD_D6 = 25;
+const int LCD_D7 = 23;
 
 #define AUTHENTICATION_TIMEOUT 5000
 #define TEMPERATURE_SENSOR_INTERVAL 10000

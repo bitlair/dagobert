@@ -1,10 +1,9 @@
 #include <Arduino.h>
-#include <LiquidCrystal_I2C.h>
-#include "OneWire.h"
+#include <LiquidCrystal.h>
 #include "defs.h"
 #include "FiniteStateMachine.h"
 
-extern LiquidCrystal_I2C lcd;
+extern LiquidCrystal lcd;
 extern UserData loggedInUser;
 extern State unlockedState;
 extern FSM fsm;
@@ -65,4 +64,3 @@ void laser_active_state_update() {
     lastKeepAliveTime = millis();
   }
 }
-

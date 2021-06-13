@@ -1,10 +1,9 @@
 #include <Arduino.h>
-#include <LiquidCrystal_I2C.h>
-#include "OneWire.h"
+#include <LiquidCrystal.h>
 #include "defs.h"
 #include "FiniteStateMachine.h"
 
-extern LiquidCrystal_I2C lcd;
+extern LiquidCrystal lcd;
 extern State lockedState;
 extern FSM fsm;
 
