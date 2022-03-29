@@ -1,6 +1,6 @@
 pyserial==3.3
 configparser==3.5.0
-paramiko==2.1.2
+paramiko==2.10.1
 pyparsing==2.2.0
 cryptography==1.8.1
 appdirs==1.4.3
