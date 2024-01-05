@@ -106,7 +106,7 @@ def payment_thread(config, user, time):
     ssh.connect(config.get('revbank', 'host'), username=config.get('revbank', 'username'))
 
     stdin, stdout, stderr = ssh.exec_command("give " + config.get('revbank', 'target')
-        + " " + price + " " + str(minutes) + "_minuten " + user['revbank'])
+        + " " + price + " " + str(minutes) + "_minuten; " + user['revbank'])
 
     result = stdout.read().decode("utf-8")
 
