@@ -1,3 +1,5 @@
+#include <Arduino.h>
+#include "defs.h"
 #include <Key.h>
 #include <Keypad.h>
 #include <LiquidCrystal.h>
@@ -5,7 +7,6 @@
 #include "LockedState.h"
 #include "UnlockedState.h"
 #include "MaintenanceState.h"
-#include "defs.h"
 #include "LaserActiveState.h"
 #include "LoadingState.h"
 
