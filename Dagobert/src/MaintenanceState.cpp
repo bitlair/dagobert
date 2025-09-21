@@ -1,9 +1,9 @@
-#include <LiquidCrystal.h>
+#include <LiquidCrystal_I2C.h>
 #include "defs.h"
 #include "FiniteStateMachine.h"
 #include <Keypad.h>
 
-extern LiquidCrystal lcd;
+extern LiquidCrystal_I2C lcd;
 extern State unlockedState;
 extern FSM fsm;
 extern Keypad keypad;

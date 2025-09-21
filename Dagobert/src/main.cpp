@@ -2,7 +2,7 @@
 #include "defs.h"
 #include <Key.h>
 #include <Keypad.h>
-#include <LiquidCrystal.h>
+#include <LiquidCrystal_I2C.h>
 #include "FiniteStateMachine.h"
 #include "LockedState.h"
 #include "UnlockedState.h"
@@ -22,7 +22,7 @@ char keys[ROWS][COLS] = {
 byte colPins[COLS] = { 30, 22, 26 };   
 byte rowPins[ROWS] = { 24, 34, 28, 32 };
 
-LiquidCrystal lcd(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+LiquidCrystal_I2C lcd(0x3F, 20, 4);
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS ); 
 
 State loadingState = State(loading_state_enter, loading_state_update, loading_state_leave);
@@ -50,7 +50,8 @@ void setup() {
   pinMode(LaserEnablePin, OUTPUT);
   pinMode(RuidaEnablePin, OUTPUT);
 
-  lcd.begin(20, 4);
+  lcd.init();
+  lcd.backlight();
 
   Serial.begin(9600);
 
@@ -61,7 +62,7 @@ void setup() {
 
 
 void loop() {
-  Serial.println(digitalRead(LaserEnableSignalPin));
+  // Serial.println(digitalRead(LaserEnableSignalPin));
   if (!digitalRead(LaserEnableSignalPin) && digitalRead(LaserEmergencySignalPin)) {
     laserActiveTime = millis();
   }
