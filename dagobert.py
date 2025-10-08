@@ -34,7 +34,7 @@ def read_configuration(configdir):
         sys.exit(2)
 
     config = configparser.ConfigParser()
-    config.readfp(configfile.open())
+    config.read_file(configfile.open())
 
     expected_config_options = { 'mqtt': [ 'temperature.subject', 'water.subject', 'server', 'laseractive.subject', 'mqtt-simple' ],
                                 'serial': [ 'device' ],
