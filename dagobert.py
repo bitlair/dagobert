@@ -109,11 +109,11 @@ def payment_thread(config, user, time):
 
     result = stdout.read().decode("utf-8")
 
-    match = re.search('\(transaction ID = (.+?)\)', result)
-    if match:
-        log("Deducted " + price + " from " + user['revbank'] + " (transaction " + match.group(1) + ")")
-    else:
-        log("Failed to deduct " + price + " from " + user['revbank'])
+    # match = re.search('\(transaction ID = (.+?)\)', result)
+    # if match:
+    #     log("Deducted " + price + " from " + user['revbank'] + " (transaction " + match.group(1) + ")")
+    # else:
+    #     log("Failed to deduct " + price + " from " + user['revbank'])
 
 def payment(config, user, time):
     threading.Thread(target = payment_thread, args = (config, user, time)).start()
