@@ -1,0 +1,14 @@
+[Unit]
+Description=Dagobert
+After=network.target
+
+[Service]
+Type=idle
+Restart=on-failure
+User=dagobert
+WorkingDirectory=/home/dagobert/dagobert
+ExecStartPre=sleep 5 ; rm -rf /tmp/lasercutter-data ; /usr/bin/git clone git@git.bitlair.nl:bitlair-bestuur/lasercutter-data.git /tmp/lasercutter-data
+ExecStart=/home/dagobert/dagobert/venv/bin/python3 -u dagobert.py -c /tmp/lasercutter-data
+
+[Install]
+WantedBy=multi-user.target
